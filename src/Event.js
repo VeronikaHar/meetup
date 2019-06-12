@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import EventDetails from './EventDetails';
 
 class Event extends Component {
     state = {
-        event: {},
         showDetails: false,
     }
 
@@ -12,14 +10,25 @@ class Event extends Component {
     }
 
     render() {
+        let event = this.props.event,
+            address = "Event's location not available. Please contact the event's organizer.",
+            button = "Show details",
+            details = "hideDetails";
+        if (this.state.showDetails) { details = "showDetails"; button = "Hide details" } else { details = "hideDetails"; button = "Show details" };
+        if (event.venue) {
+            address = event.venue.name + ", " + event.venue.address_1 + ", " + event.venue.city + ", " + event.venue.localized_country_name
+        };
         return (
             <div className="Event">
-                <div className="eventDate"></div>
-                <div className="eventName"></div>
-                <div className="groupName"></div>
-                <div className="yesRSVP"></div>
-                <EventDetails isOpen={this.state.showDetails} />
-                <button className="details" onClick={this.handleClick}>Details</button>
+                <div className="eventDate">{event.local_time} - {event.local_date}</div>
+                <div className="eventName">{event.name} </div>
+                <div className="groupName">{event.group.name} </div>
+                <div className="going">{event.yes_rsvp_count} people are going</div>
+                <div className={details}>
+                    <p>{address} </p>
+                    <p>{event.description}</p>
+                </div>
+                <button className="details-btn" onClick={this.handleClick}>{button} </button>
             </div>
         );
     }
