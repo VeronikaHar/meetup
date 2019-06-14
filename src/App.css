@@ -1,10 +1,17 @@
 .App {
   text-align: center;
-  padding: 2% 5%;
+  padding: 3% 10%;
+  background-color: #f5f5f5;
 }
 
 .App * {
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+}
+
+.address {
+  font: 700 16px 'Nunito Sans', sans-serif;
 }
 
 .city {
@@ -22,24 +29,31 @@
   margin-right: 10px;
   white-space: nowrap;
   padding: 5px 8px;
-  border-radius: 4px;
   outline: none;
+  border: 1px solid #ccc;
   cursor: pointer;
   background-color: transparent;
+  font-size: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  color:  rgb(143, 79, 79);
+}
+
+.details-btn:hover {
+  border: 1.5px solid rgb(143, 79, 79);  
+  color: #000;
 }
 
 .Event {
-  padding: 10px 10px 55px;
+  padding: 15px 15px 60px;
   margin-bottom: 10px;
   text-align: left;
   border: 1px solid #ccc;
-  border-radius: 4px;
   position: relative;
+  background-color: #fff;
 }
 
 .eventName {
-  font-size: 18px;
-  font-weight: 600;
+  font: 700 18px 'Nunito Sans', sans-serif;
 }
 
 .groupName {
@@ -57,7 +71,6 @@
 
 input[type="text"], input[type="number"] {
   padding: 8px 6px 8px 10px;
-  border-radius: 4px;
   outline: none;
   border: 1px solid #ccc;
   font-size: 14px;
@@ -66,9 +79,16 @@ input[type="text"], input[type="number"] {
   height: 38px;
 }
 
+input[type="text"]:hover,
+input[type="text"]:focus,
+input[type="number"]:hover,
+input[type="number"]:focus {
+  border-color:  rgb(143, 79, 79);
+}
+
 .number-of-events {
   width: 80px;
-  margin: 20px 0 50px;
+  margin: 20px 0 30px;
   text-align: right;
 }
 
@@ -96,10 +116,21 @@ p {
 }
 
 .suggestions > li:hover {
-  background-color: #BCDCDB;
+  background-color: #fff;
+  color:  rgb(143, 79, 79)
 }
 
 ul {
   padding: 0;
   list-style: none;
+}
+
+@media all and (max-width: 700px) {
+  .EventList {
+    flex-direction: column;
+  }
+
+  .App {
+    padding: 25px 0px;
+  }
 }
