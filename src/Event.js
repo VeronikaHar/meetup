@@ -25,7 +25,7 @@ class Event extends Component {
                 <div className="groupName">{event.group.name} </div>
                 <div className="going">{event.yes_rsvp_count} people are going</div>
                 <div className={details}>
-                    <p>{address} </p>
+                    <p className="address" >{address} </p>
                     <p>{event.description}</p>
                 </div>
                 <button className="details-btn" onClick={this.handleClick}>{button} </button>
