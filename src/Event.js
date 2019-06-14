@@ -26,7 +26,8 @@ class Event extends Component {
                 <div className="going">{event.yes_rsvp_count} people are going</div>
                 <div className={details}>
                     <p className="address" >{address} </p>
-                    <p>{event.description}</p>
+                    <div dangerouslySetInnerHTML={{ __html: event.description }} />
+                    <a className="link" target="_blank" href={event.link}>Event Link</a>
                 </div>
                 <button className="details-btn" onClick={this.handleClick}>{button} </button>
             </div>

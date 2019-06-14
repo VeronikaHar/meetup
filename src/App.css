@@ -10,6 +10,11 @@
   line-height: 1.6;
 }
 
+a, .link {
+  color:  rgb(143, 79, 79);
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .address {
   font: 700 16px 'Nunito Sans', sans-serif;
 }
@@ -25,8 +30,7 @@
 
 .details-btn {
   float: right;
-  margin-top: 10px;
-  margin-right: 10px;
+  margin: 10px;
   white-space: nowrap;
   padding: 5px 8px;
   outline: none;
