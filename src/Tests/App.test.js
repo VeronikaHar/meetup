@@ -39,10 +39,14 @@ describe('<App /> integration', () => {
     await AppWrapper.update();
     expect(AppWrapper.state('events')).toEqual(mockEvents.events);
   });
-  test('render correct list of events', () => {
+  test('get list of events after user changes event number', async () => {
     const AppWrapper = mount(<App />);
-    AppWrapper.setState({ events: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] });
-    expect(AppWrapper.find('.Event')).toHaveLength(4);
+    AppWrapper.instance().updateEvents = jest.fn();
+    AppWrapper.instance().forceUpdate();
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    NumberOfEventsWrapper.instance().handleChange({ target: { value: 5 } });
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(null, null, 5);
     AppWrapper.unmount();
   });
 });
