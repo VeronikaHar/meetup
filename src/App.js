@@ -18,11 +18,14 @@ class App extends Component {
   }
 
   updateEvents = (lat, lon, page) => {
-    getEvents(lat, lon, page).then(events => this.setState({ events }));
-  }
-
-  componentWillUnmount() {
-    this.setState({ events: [], lat: null, lon: null, page: 32 })
+    //if user picks a city or changes default event number, we store it in the state
+    if (lat && lon) {
+      getEvents(lat, lon, this.state.page).then(events => this.setState({ events, lat, lon }));
+    } else if (page) {
+      getEvents(this.state.lat, this.state.lon, page).then(events => this.setState({ events, page }));
+    } else {
+      getEvents(this.state.lat, this.state.lon, this.state.page).then(events => this.setState({ events }));
+    }
   }
 
   render() {
