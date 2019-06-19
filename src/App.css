@@ -1,3 +1,10 @@
+.Alert > p {
+font: italic 14px 'Nunito Sans', sans-serif;
+height: 15px;
+margin-top:-5px;
+margin-bottom: 15px;
+}
+
 .App {
   text-align: center;
   padding: 3% 10%;
@@ -92,7 +99,7 @@ input[type="number"]:focus {
 
 .number-of-events {
   width: 80px;
-  margin: 20px 0 30px;
+  margin: 10px 0 10px;
   text-align: right;
 }
 
