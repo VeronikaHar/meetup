@@ -27,7 +27,8 @@ a, .link {
 }
 
 .city {
-  width: 250px;
+  width: 250px;  
+  margin-bottom: 10px;
 }
 
 .CitySearch {

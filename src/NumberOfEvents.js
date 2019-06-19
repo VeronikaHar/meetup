@@ -10,11 +10,11 @@ class NumberOfEvents extends Component {
     handleChange = (event) => {
         const value = event.target.value;
         this.setState({ eventNumber: value });
-        this.props.updateEvents(null, null, value);
 
         if (value < 1) {
             this.setState({ errorText: "Event number should be at least 1." })
         } else {
+            this.props.updateEvents(null, null, value);
             this.setState({ errorText: "" });
         }
     };
