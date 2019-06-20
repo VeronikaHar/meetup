@@ -100,7 +100,7 @@ input[type="number"]:focus {
 
 .number-of-events {
   width: 80px;
-  margin: 10px 0 10px;
+  margin: 30px 0 10px;
   text-align: right;
 }
 
@@ -112,6 +112,7 @@ p {
   width: 250px;
   align-self: center;
   margin: 0;
+  margin-top: -30px;
   font-size: 14px;
 }
 
