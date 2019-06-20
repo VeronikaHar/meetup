@@ -1,37 +1,53 @@
 import React, { Component } from 'react';
 import { getSuggestions } from './api';
-import { InfoAlert } from './Alert';
+import { InfoAlert, WarningAlert } from './Alert';
 
 class CitySearch extends Component {
     state = {
         query: "",
         suggestions: [],
-        infoText: ""
+        infoText: "",
+        warningText: ""
     }
 
     handleInputChanged = (event) => {
         const value = event.target.value;
         this.setState({ query: value });
-        getSuggestions(value).then(suggestions => {
-            this.setState({ suggestions });
-
-            if (value && suggestions.length === 0) {
-                this.setState({
-                    infoText: "We cannot find the city you are looking for. Please try another city.",
-                });
-            } else {
-                this.setState({ infoText: "" });
-            }
-        });
+        if (!navigator.onLine) {
+            this.setState({ warningText: "Ooops... Your app is offline and the events were loaded from cache." });
+        } else {
+            this.setState({ warningText: "" })
+            getSuggestions(value).then(suggestions => {
+                this.setState({ suggestions });
+                if (value && suggestions.length === 0) {
+                    this.setState({
+                        infoText: "We cannot find the city you are looking for. Please try another city.",
+                    });
+                } else {
+                    this.setState({ infoText: "" });
+                }
+            });
+        }
     }
     handleItemClicked = (value, lat, lon) => {
         this.setState({ query: value, suggestions: [] });
         this.props.updateEvents(lat, lon);
+        if (navigator.onLine) { localStorage.setItem('lastCity', JSON.stringify(value)); }
     };
+
+    componentDidMount() {
+        if (!navigator.onLine) {
+            let value = JSON.parse(localStorage.getItem('lastCity'));
+            this.setState({ query: value });
+        } else {
+            this.setState({ query: "" });
+        }
+    }
 
     render() {
         return (
             <div className="CitySearch">
+                <WarningAlert text={this.state.warningText} />
                 <input type="text" className="city"
                     value={this.state.query} onChange={this.handleInputChanged} placeholder="Search a city..." />
                 <InfoAlert text={this.state.infoText} />
