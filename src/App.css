@@ -17,7 +17,7 @@ margin-bottom: 10px;
 }
 
 a, .link {
-  color: rgb(156, 34, 34);
+  color: #9c2222;
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -46,11 +46,11 @@ a, .link {
   background-color: transparent;
   font-size: 16px;
   font-family: 'Nunito Sans', sans-serif;
-  color:  rgb(156, 34, 34);
+  color:  #9c2222;
 }
 
 .details-btn:hover {
-  border: 1.5px solid rgb(156, 34, 34);  
+  border: 1.5px solid #9c2222;  
   color: #000;
 }
 
@@ -82,7 +82,7 @@ a, .link {
 
 html {
   min-height: 100%;
-  background-color: #fdfbfb;
+  background-color: #f0eeee;
 }
 
 input[type="text"], input[type="number"] {
@@ -99,7 +99,7 @@ input[type="text"]:hover,
 input[type="text"]:focus,
 input[type="number"]:hover,
 input[type="number"]:focus {
-  border-color:  rgb(156, 34, 34);
+  border-color:  #9c2222;
 }
 
 .number-of-events {
@@ -116,25 +116,25 @@ p {
   width: 250px;
   align-self: center;
   margin: 0;
-  margin-top: -35px;
+  margin-top: -30px;
   font-size: 14px;
 }
 
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #ece8e8;
   cursor: default;
-}
-
-.suggestions > li:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 
 .suggestions > li:hover {
   background-color: #fff;
-  color:  rgb(156, 34, 34);
+  color:  #9c2222;
+}
+
+svg {
+  margin-left: -10px;
+  font-size: 14px;
 }
 
 ul {
@@ -153,5 +153,9 @@ ul {
 
   .App {
     padding: 20px 0px;
+  }
+
+  .suggestions {
+    margin-top: -35px;
   }
 }
