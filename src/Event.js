@@ -22,10 +22,10 @@ class Event extends Component {
         };
         const data = [],
             colors = ["#9c2222", "#ccc"];
-        if (event.rsvp_limit) {
+        if (event.rsvp_limit && button === "Hide details") {
             const spotsLeft = event.rsvp_limit - event.yes_rsvp_count;
             data.push({ name: "people going", value: event.yes_rsvp_count }, { name: "slots left", value: spotsLeft });
-            going = (<PieChart height={140} width={300}>
+            going = (<PieChart height={145} width={320}>
                 <Pie data={data} cx={75} cy={75} innerRadius={30} outerRadius={40} fill="#8884d8" label>{
                     data.map((entry, index) => <Cell fill={colors[index % colors.length]} />)}
                 </Pie>
